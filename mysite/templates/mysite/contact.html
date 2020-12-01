@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block 'contact' %}
+<!-- start contact -->
+<div id="contact" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-lg-offset-1 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                <address>
+                    <p class="contact-title">Get In Touch - {{message1}}</p>
+                    <p><i class="fa fa-phone"></i> 9810452566</p>
+                    <p><i class="fa fa-envelope-o"></i> darshanthapa872@gmail.com</p>
+                    <p><i class="fa fa-map-marker"></i> Itahari, Nepal</p>
+                </address>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-10 wow fadeInUp" data-wow-delay="0.6s">
+                <form role="form" method="POST" action="#" name="myForm">
+
+                    {% csrf_token %}
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            {{form.name}}
+                        </div>
+                    </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="form-group">
+                    <div class="input-group">
+                        {{form.email}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="form-group">
+                    <div class="input-group">
+                        {{form.phone}}
+
+                    </div>
+                    <small>{{form.phone.errors|striptags}}</small>
+
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group">
+                    <div class="input-group">
+                        {{form.message}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                {% if messages %}
+
+                {% for message in messages %}
+                {% if message.tags %}
+                <div class="alert alert-{{message.tags}}" role="alert">
+
+                    {{message}}
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                <button name="submit" type="submit" value="Submit"
+                    class="site-button outline outline-2 radius-xl button-md"> <span>Submit</span> </button>
+
+            </div>
+
+            <!-- <div class="form-group">
+                        <div class="input-group">
+                           {{form.name}}
+                        </div>
+                    </div>
+                    <input name="email" type="email" class="form-control" id="email" placeholder="Your Email">
+                    <input name="phone" type="phone" class="form-control" id="phone" placeholder="Phone">
+                    <textarea name="message" rows="5" class="form-control" id="message"
+                        placeholder="Your Message"></textarea>
+                    <input name="send" type="submit" class="form-control" id="send" value="SEND ME"> -->
+
+            </form>
+        </div>
+        <div class="col-md-1 col-sm-1"></div>
+    </div>
+</div>
+</div>
+
+{% endblock 'contact' %}
+<!-- end contact -->
